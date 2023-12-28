@@ -12,7 +12,7 @@ VALUES
 INSERT INTO game (game_id, name, year, min_player, max_player, time, min_age, owned)
 VALUES
 (1, 'Gloomhaven', 2017, 1, 4, 120, 14, 68323),
-(2, 'Machi Koro', 2012, 2, 4, 120, 14, 40930),
+(2, 'Machi Koro', 2012, 2, 4, 30, 10, 40930),
 (3, 'Rallyman', 2009, 1, 4, 45, 9, 3034),
 (4, 'Spot it!', 2009, 2, 8, 15, 7, 24326),
 (5, 'Brass: birmingham', 2018, 2, 4, 120, 14, 28785);
