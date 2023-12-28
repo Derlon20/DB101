@@ -109,6 +109,4 @@ for bar, avg_time in zip(bars, time):
     plt.text(bar.get_x() + bar.get_width() / 2, bar.get_height() - 0.5, f'{avg_time:.2f}', 
              ha='center', va='top', fontsize=8, color='darkblue')
 plt.title('Середній час гри кожного жанру')
-plt.xlabel('Жанр')
-plt.ylabel('Average Time (minutes)')
 plt.show()
