@@ -15,9 +15,8 @@ cur = conn.cursor()
 
 
 query_a = """
-SELECT g.name, g.time
-FROM Game g
-ORDER BY Time DESC;
+select name, time from game
+order by time desc;
 """
 
 cur.execute(query_a)
@@ -33,11 +32,11 @@ for row in result_a:
 
 
 query_b = """
-    SELECT D.domain, COUNT(DG.Game_id) AS GameCount
-FROM Domains D
-LEFT JOIN Domain_of_Game DG ON D.domain_id = DG.domain_id
-GROUP BY D.domain
-ORDER BY GameCount DESC;
+select domain, count(domain_of_game.Game_id) as GameCount
+from Domains
+left join domain_of_game on domains.domain_id = domain_of_game.domain_id
+group by domains.domain
+order by GameCount desc;
 """
 
 cur.execute(query_b)
@@ -51,12 +50,11 @@ for row in result_b:
 
 
 query_c = '''
-SELECT D.domain, AVG(G.Time) AS AverageTime
-FROM Domains D
-JOIN Domain_of_Game DG ON D.domain_id = DG.domain_id
-JOIN Game G ON DG.Game_id = G.Game_id
-GROUP BY D.domain
-ORDER BY AverageTime DESC;
+select domain, avg(game.time) as AverageTime from domains 
+join domain_of_game on domains.domain_id = domain_of_game.domain_id
+join game on domain_of_game.game_id = game.game_id
+group by domains.domain
+order by AverageTime desc;
 '''
 cur.execute(query_c)
 result_c = cur.fetchall()
